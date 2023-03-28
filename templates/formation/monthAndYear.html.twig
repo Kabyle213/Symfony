@@ -1,0 +1,16 @@
+{% include 'base.html.twig' %}
+{% block body %}
+<div class="container">
+{% for forma in formations %}
+    <div class="carte col-6">
+        <div class="contenant">
+            <h4><b> Date de la formation : {{forma.dateDebut|date("d/m/y") }}</b></h4> 
+            <p>Nombres d'heures de la formation : {{forma.NbreHeures}}</p> 
+            <p>Nombres d'heures de la formation : {{inscription.getFormation.NbreHeures}}</p>
+            <p>Département : {{forma.Departement}}</p>
+            <p>Pays: {{forma.pays}}</p>
+            <a href="{{path('app_formation_sup',{'id': forma.id})}}">supression</a></br>
+        </div>
+    </div>
+{% endfor %}
+</div>

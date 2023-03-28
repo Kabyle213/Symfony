@@ -1,0 +1,10 @@
+{% include 'base.html.twig' %}
+{% block body %}
+Vous êtes dans la liste des employes de statut 0: </br>
+{% for employe in employes %}
+    Login de l'employe : {{employe.login}} </br>
+    Nom : {{employe.nom}} <br>
+    Prenom : {{employe.prenom}} </br>
+    <a href="{{path('app_employeFormation_aff',{'id': employe.id})}}">afficher les formations de cet employe</a></br>
+{% endfor %}
+{% endblock %}

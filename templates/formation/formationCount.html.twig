@@ -1,0 +1,4 @@
+{% include 'base.html.twig' %}
+{% for inscription in inscriptions %}
+    Nom Formation : {{inscription.getFormation.getId}} </br>
+{% endfor %}

@@ -1,0 +1,19 @@
+{% include 'base.html.twig' %}
+{% block body %}
+
+Vous êtes dans la liste des  formation de l'employe {{employe.nom }}  {{employe.prenom}}: </br><br><br>
+<div class="container">
+{% for inscription in inscriptions %}
+    <div class="carte col-6">
+        <div class="contenant">
+            <h4><b> Date de la formation : {{inscription.getFormation.dateDebut|date("m/d/y") }}</b></h4> 
+            <p>Description : {{inscription.getFormation.description}}</p> 
+            <p>Nombres d'heures de la formation : {{inscription.getFormation.NbreHeures}}</p>
+            <p>Département : {{inscription.getFormation.Departement}}</p>
+            <p>Pays: {{inscription.getFormation.pays}}</p>
+            <a href="{{path('app_formation_sup',{'id': inscription.getFormation.id})}}"><button type="button" class="btn btn-primary">Supression</button></a></br>
+        </div>
+    </div>
+{% endfor %}
+</div>
+{% endblock %}

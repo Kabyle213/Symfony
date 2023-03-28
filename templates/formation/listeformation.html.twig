@@ -1,0 +1,23 @@
+{% include 'base.html.twig' %}
+{% block body %}
+Vous êtes dans la liste des  formations : </br>
+{% if (message) %}
+    {{message}}
+{% endif %}
+<div class="container">
+{% for formation in ensFormations %}
+    <div class="carte col-6">
+        <div class="contenant">
+            <h4><b> Date de la formation : {{formation.dateDebut|date("m/d/y") }}</b></h4> 
+            <p>Description : {{formation.description}}</p> 
+            <p>Nombres d'heures de la formation : {{formation.NbreHeures}}</p>
+            <p>Département : {{formation.Departement}}</p>
+            <p>Pays: {{formation.pays}}</p>
+            <a href="{{path('app_formation_sup',{'id': formation.id})}}"><button type="button" class="btn btn-primary">Supression</button></a></br>
+        </div>
+    </div>
+{% endfor %}
+</div>
+<br>
+<center><a href="{{path('app_ajout_Formation')}}">Ajouter Formation</a></br>
+{% endblock %}

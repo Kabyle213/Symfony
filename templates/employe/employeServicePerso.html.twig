@@ -1,0 +1,11 @@
+{% include 'base.html.twig' %}
+{% block body %}
+    Bienvenue a toi {{employe.nom}} {{employe.prenom}} 
+<br>
+    Ton statut: {{employe.statut}}
+<br>
+<br>
+<a href="{{path('app_inscriptionEnCours_Formation')}}">Afficher les inscriptions en cours</a></br>
+<a href="{{path('app_aff')}}">Afficher toutes les formations</a></br>
+<a href="{{path('app_employe_aff')}}">Afficher tous les employes</a><br>
+{% endblock %}

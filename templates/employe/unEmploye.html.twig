@@ -1,0 +1,20 @@
+{% include 'base.html.twig' %}
+{% block body %}
+{% block stylesheets %}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+{% endblock %}
+<div class="container">
+{% for inscription in inscriptions %}
+    <div class="carte col-6">
+        <div class="contenant">
+            <h4><b> Date de la formation : {{inscription.getFormation.dateDebut|date("m/d/y") }}</b></h4> 
+            <p>Description : {{inscription.getFormation.description}}</p> 
+            <p>Nombres d'heures de la formation : {{inscription.getFormation.NbreHeures}}</p>
+            <p>Département : {{inscription.getFormation.Departement}}</p>
+            <p>Pays: {{inscription.getFormation.pays}}</p>
+           <a href="{{path('app_inscription',{'id': inscription.getFormation.id})}}"><button type="button" class="btn btn-primary">S'inscrire</button></a></br>
+        </div>
+    </div>
+{% endfor %}
+</div>
+{% endblock %}

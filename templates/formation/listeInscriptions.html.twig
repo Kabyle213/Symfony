@@ -1,0 +1,18 @@
+{% include 'base.html.twig' %}
+{% block body %}
+Vous êtes dans la liste des  Inscriptions : </br>
+<div class="container">
+{% for inscription in ensInscriptions %}
+    <div class="carte col-6">
+        <div class="contenant">
+            <h4><b> statut : {{inscription.statut}}</b></h4> 
+            <p> Id de l'inscription : {{inscription.id}} </p> 
+            <p> Nom Employe : {{inscription.getEmploye.getNom}}</p>
+            Nom Formation : {{inscription.getFormation.getId}} </br>
+            <a href="{{path('app_statut_Formation',{'statut': 'accepte','id': inscription.id})}}">Formation Accepte</a></br>
+            <a href="{{path('app_statut_Formation',{'statut': 'refuse', 'id': inscription.id})}}">Formation Refuse</a></br>
+        </div>
+    </div>
+{% endfor %}
+</div>
+{% endblock %}
